@@ -1,0 +1,12 @@
+{%extends 'base.html'%}
+{%block content%}
+<form action='' method='POST'>{%csrf_token%}
+<ul><label for='username'>username</label>
+<input type='text' name='username'/></ul>
+<ul><label for='password'>password</label>
+<input type='password' name='password'><ul>
+
+<input type='submit' value='登陆'>
+<a href='/post/register/'>注册</a>
+</form>
+{%endblock%}

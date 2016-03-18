@@ -1,0 +1,21 @@
+{%extends 'base.html'%}
+{%load staticfiles%}
+{%block content%}
+{%for post in posts%}
+<div class="blogs">
+        <figure><img src="{%static 'images/01.jpg'%}"></figure>
+        <ul>
+          <h3><a href="/post/{{post.id}}/">{{post.title}}</a></h3>
+          <p>{{post.desc}}</p>
+          <p class="autor"><span class="lm f_l"><a href="/">个人博客</a></span><span class="dtime f_l">{{post.created_time|date:'Y-m-d'}}</span><span class="viewnum f_r">浏览<a href="/">459</a></span><span class="pingl f_r">评论<a href="/">30</a></span></p>
+        </ul>
+      </div>
+{%endfor%}
+	{%if posts.has_previous%}
+	<a href='/post/draft/?page={{posts.previous_page_number}}'>&laquo;上一页</a>
+	{%endif%}
+	<span>{{page}}</span>
+	{%if posts.has_next%}
+	<a href='/post/draft/?page={{posts.next_page_number}}'>下一页&raquo;</a>
+	{%endif%}
+{%endblock%}

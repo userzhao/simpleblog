@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load staticfiles%}
+{% block content %}
+{%for post in posts%}
+<div class="blogs">
+        <figure><img src="{%static 'images/01.jpg'%}"></figure>
+        <ul>
+          <h3><a href="/post/{{post.id}}/">{{post.title}}</a></h3>
+          <p>{{post.content}}</p>
+          <p class="autor"><span class="lm f_l"><a href="/">个人博客</a></span><span class="dtime f_l">{{post.created_time}}</span><span class="viewnum f_r">浏览（<a href="/">459</a>）</span><span class="pingl f_r">评论（<a href="/">30</a>）</span></p>
+        </ul>
+      </div>
+{% endfor %}
+{% endblock %}
